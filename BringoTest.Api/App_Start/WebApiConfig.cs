@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Web.Http;
 using AutoMapper;
 using BringoTest.Api.ExceptionFilters;
@@ -13,6 +14,7 @@ namespace BringoTest.Api
 	{
 		public static void Register(HttpConfiguration config)
 		{
+			AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData));
 			config.MapHttpAttributeRoutes();
 
 			if (!Debugger.IsAttached)
