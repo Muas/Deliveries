@@ -7,5 +7,6 @@ namespace BringoTest.Data.Repositories
 	public interface IRepository<T>
 	{
 		IEnumerable<T> GetAll(Expression<Func<T, bool>> filter);
+		T Update(int id, T value);
 	}
 }

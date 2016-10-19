@@ -18,8 +18,6 @@ namespace BringoTest.Data.Repositories.SqLite
 
 		public IEnumerable<T> GetAll(Expression<Func<T, bool>> filter)
 		{
-			_context.Set<T>().Add(new Delivery {Status = 1, CreationTime = DateTime.Now, Title = "Ushch ushch"} as T);
-			_context.SaveChanges();
 			IQueryable<T> query = _context.Set<T>();
 			if (filter != null)
 			{

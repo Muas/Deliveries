@@ -104,7 +104,11 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
-    <Compile Include="ExceptionFilters\DefaultExceptionFilter.cs" />
+    <Compile Include="ExceptionFilters\ExceptionFilter.cs" />
+    <Compile Include="ExceptionFilters\ErrorMessage.cs" />
+    <Compile Include="ExceptionFilters\ErrorMessageFactories\DefaultErrorMessageFactory.cs" />
+    <Compile Include="ExceptionFilters\ErrorMessageFactories\NotFoundErrorMessageFactory.cs" />
+    <Compile Include="ExceptionFilters\IErrorMessageFactory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
