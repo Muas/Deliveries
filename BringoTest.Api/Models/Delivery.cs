@@ -1,4 +1,5 @@
 ﻿using System;
+using BringoTest.Shared;
 
 namespace BringoTest.Api.Models
 {

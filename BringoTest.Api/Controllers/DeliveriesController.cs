@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using AutoMapper;
 using BringoTest.Api.Models;
 using BringoTest.Data.Repositories;
+using BringoTest.Shared;
+using BringoTest.Shared.Exceptions;
 using BringoTest.Shared.Extensions;
 
 namespace BringoTest.Api.Controllers
@@ -29,12 +30,20 @@ namespace BringoTest.Api.Controllers
 				.MapAll<Delivery>(_mapper);
 		}
 
-		[Route("TakeDelivery")]
-		[HttpPut]
-		public Delivery TakeDelivery(uint deliveryId, uint userId)
+		[Route("{deliveryId}/TakeDelivery")]
+		// todo: put
+		[HttpGet]
+		public Delivery TakeDelivery(int deliveryId, int userId)
 		{
-			throw new NotImplementedException();
-//			return _repository.TakeDelivery(deliveryId, userId).Map<Delivery>(_mapper);
+			var delivery = _repository.Get(deliveryId).Map<Delivery>(_mapper);
+			if (delivery.Status != DeliveryStatus.Available)
+			{
+				throw new BadRequestException();
+			}
+			delivery.UserId = userId;
+			delivery.Status = DeliveryStatus.Taken;
+			_repository.Update(delivery.Map<Data.Models.Delivery>(_mapper));
+			return delivery;
 		}
 	}
 }

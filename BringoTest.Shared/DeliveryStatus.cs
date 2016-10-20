@@ -1,4 +1,4 @@
-﻿namespace BringoTest.Api.Models
+﻿namespace BringoTest.Shared
 {
 	public enum DeliveryStatus
 	{

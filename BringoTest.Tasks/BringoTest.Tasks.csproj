@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B4DA442D-F341-4093-960C-D571CFCE2EFC}</ProjectGuid>
+    <ProjectGuid>{A83D750D-9C85-4157-AAFC-FFF139E88131}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BringoTest.Shared</RootNamespace>
-    <AssemblyName>BringoTest.Shared</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>BringoTest.Tasks</RootNamespace>
+    <AssemblyName>BringoTest.Tasks</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,18 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SimpleInjector, Version=3.2.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.3.2.3\lib\net45\SimpleInjector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,25 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
-    <Compile Include="DataTimeProvider\IDateTimeProvider.cs" />
-    <Compile Include="DataTimeProvider\UtcDateTimeProvider.cs" />
-    <Compile Include="DeliveryStatus.cs" />
-    <Compile Include="Exceptions\BadRequestException.cs" />
-    <Compile Include="Exceptions\NotFoundException.cs" />
-    <Compile Include="Extensions\AutomapperExtensions.cs" />
-    <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Extensions\NewtonsoftJsonHelper.cs" />
-    <Compile Include="Extensions\ReaderWriterLockSlimExtensions.cs" />
-    <Compile Include="Multithreading\ReadLock.cs" />
-    <Compile Include="Multithreading\UpgradeableLock.cs" />
-    <Compile Include="Multithreading\WriteLock.cs" />
+    <Compile Include="Tasks\CreateDeliveriesTask.cs" />
+    <Compile Include="Tasks\ExpireDeliveriesTask.cs" />
+    <Compile Include="Tasks\ITask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\BringoTest.Data\BringoTest.Data.csproj">
+      <Project>{0dcdf575-15d7-4fc3-a41c-7fa6515e6e36}</Project>
+      <Name>BringoTest.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BringoTest.Shared\BringoTest.Shared.csproj">
+      <Project>{b4da442d-f341-4093-960c-d571cfce2efc}</Project>
+      <Name>BringoTest.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

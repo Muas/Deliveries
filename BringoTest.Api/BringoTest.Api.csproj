@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -102,8 +103,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\DataSource.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
+    <Compile Include="ExceptionFilters\ErrorMessageFactories\BadRequestErrorMessageFactory.cs" />
     <Compile Include="ExceptionFilters\ExceptionFilter.cs" />
     <Compile Include="ExceptionFilters\ErrorMessage.cs" />
     <Compile Include="ExceptionFilters\ErrorMessageFactories\DefaultErrorMessageFactory.cs" />
@@ -114,7 +117,6 @@
     </Compile>
     <Compile Include="Mappings\DeliveryMappingProfile.cs" />
     <Compile Include="Models\Delivery.cs" />
-    <Compile Include="Models\DeliveryStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
