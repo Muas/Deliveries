@@ -1,6 +1,7 @@
 ﻿using System;
 using BringoTest.Data.Models;
 using BringoTest.Data.Repositories;
+using BringoTest.Shared;
 using BringoTest.Shared.DataTimeProvider;
 using BringoTest.Shared.RandomGenerator;
 
@@ -32,7 +33,8 @@ namespace BringoTest.Tasks.Tasks
 			{
 				var newDelivery = new Delivery
 				{
-					Status = 1,
+					Status = (int) DeliveryStatus.Available,
+					Title = _randomGenerator.NextString(10),
 					ExpirationTime = _dateTimeProvider.Now().Add(context.ExpirationOffset)
 				};
 				_repository.Create(newDelivery);

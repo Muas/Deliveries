@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace BringoTest.Shared.RandomGenerator
 {
@@ -14,6 +15,15 @@ namespace BringoTest.Shared.RandomGenerator
 			}
 
 			return _random.Next(min, max);
+		}
+
+		public string NextString(int length)
+		{
+			const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			return new string(Enumerable.Range(0, length)
+				.Select(_ => _random.Next(chars.Length))
+				.Select(i => chars[i])
+				.ToArray());
 		}
 	}
 }
