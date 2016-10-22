@@ -7,7 +7,9 @@ using BringoTest.Api.ExceptionFilters;
 using BringoTest.Api.Mappings;
 using BringoTest.Data.Repositories.FileSystem;
 using BringoTest.Data.Repositories.SqLite;
+using BringoTest.Shared;
 using SimpleInjector;
+using SimpleInjector.Extensions.ExecutionContextScoping;
 using SimpleInjector.Integration.WebApi;
 
 namespace BringoTest.Api
@@ -29,6 +31,7 @@ namespace BringoTest.Api
 
 			RegisterDataDependencies(container);
 			Shared.Configuration.RegisterDependencies(container);
+			Tasks.Configuration.RegisterDependencies(container);
 
 			container.Register(typeof (IErrorMessageFactory<>), new[] {typeof (IErrorMessageFactory<>).Assembly});
 
@@ -40,14 +43,19 @@ namespace BringoTest.Api
 
 			container.Register(() => mapperConfig.CreateMapper(), Lifestyle.Singleton);
 
+			container.Register(() => container, Lifestyle.Singleton);
+			container.Register<IScopeFactory, SimpleInjectorScopeFactory>(Lifestyle.Singleton);
+
 			container.Verify();
 
 			config.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
+
+			Tasks.Configuration.StartSchedules(container);
 		}
 
 		private static void RegisterDataDependencies(Container container)
 		{
-			var dataSourceString = ConfigurationManager.AppSettings["DataSource"];
+			var dataSourceString = Registry.Configuration.DataSource;
 			DataSource dataSource;
 			if (!Enum.TryParse(dataSourceString, true, out dataSource))
 			{

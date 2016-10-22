@@ -6,11 +6,6 @@ using BringoTest.Shared.Extensions;
 
 namespace BringoTest.Tasks.Tasks
 {
-	public sealed class ExpireDeliveriesTaskContext
-	{
-		
-	}
-
 	internal sealed class ExpireDeliveriesTask : ITask<ExpireDeliveriesTaskContext>
 	{
 		private readonly IRepository<Delivery> _repository;

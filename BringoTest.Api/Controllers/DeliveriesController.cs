@@ -33,7 +33,7 @@ namespace BringoTest.Api.Controllers
 		[Route("{deliveryId}/TakeDelivery")]
 		// todo: put
 		[HttpGet]
-		public Delivery TakeDelivery(int deliveryId, int userId)
+		public Delivery TakeDelivery(int deliveryId, uint userId)
 		{
 			var delivery = _repository.Get(deliveryId).Map<Delivery>(_mapper);
 			if (delivery.Status != DeliveryStatus.Available)

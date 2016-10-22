@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DataSource.cs" />
+    <Compile Include="App_Start\SimpleInjectorScopeFactory.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />
     <Compile Include="ExceptionFilters\ErrorMessageFactories\BadRequestErrorMessageFactory.cs" />
@@ -139,6 +140,10 @@
     <ProjectReference Include="..\BringoTest.Shared\BringoTest.Shared.csproj">
       <Project>{b4da442d-f341-4093-960c-d571cfce2efc}</Project>
       <Name>BringoTest.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BringoTest.Tasks\BringoTest.Tasks.csproj">
+      <Project>{a83d750d-9c85-4157-aafc-fff139e88131}</Project>
+      <Name>BringoTest.Tasks</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

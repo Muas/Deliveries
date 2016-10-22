@@ -1,9 +1,9 @@
-﻿using BringoTest.Tasks.Tasks;
+﻿using System;
 
 namespace BringoTest.Tasks.TaskSchedulers
 {
-	public interface ITaskScheduler<TTask, TContext> where TTask : ITask<TContext>
+	public interface ITaskScheduler
 	{
-		void Start();
+		ITaskScheduler Start<TContext>(Func<TContext> taskContextFactory);
 	}
 }

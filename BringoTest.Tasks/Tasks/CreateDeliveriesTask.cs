@@ -2,28 +2,21 @@
 using BringoTest.Data.Models;
 using BringoTest.Data.Repositories;
 using BringoTest.Shared.DataTimeProvider;
+using BringoTest.Shared.RandomGenerator;
 
 namespace BringoTest.Tasks.Tasks
 {
-	public sealed class CreateDeliveriesTaskContext
-	{
-		public CreateDeliveriesTaskContext(TimeSpan expirationOffset)
-		{
-			ExpirationOffset = expirationOffset;
-		}
-
-		public TimeSpan ExpirationOffset { get; }
-	}
-
 	internal sealed class CreateDeliveriesTask: ITask<CreateDeliveriesTaskContext>
 	{
 		private readonly IRepository<Delivery> _repository;
 		private readonly IDateTimeProvider _dateTimeProvider;
+		private readonly IRandomGenerator _randomGenerator;
 
-		public CreateDeliveriesTask(IRepository<Delivery> repository, IDateTimeProvider dateTimeProvider)
+		public CreateDeliveriesTask(IRepository<Delivery> repository, IDateTimeProvider dateTimeProvider, IRandomGenerator randomGenerator)
 		{
 			_repository = repository;
 			_dateTimeProvider = dateTimeProvider;
+			_randomGenerator = randomGenerator;
 		}
 
 		public void Execute(CreateDeliveriesTaskContext context)
@@ -33,12 +26,17 @@ namespace BringoTest.Tasks.Tasks
 				throw new ArgumentNullException(nameof(context));
 			}
 
-			var newDelivery = new Delivery
+			var taskCount = _randomGenerator.NextInt(context.MinTaskCount, context.MaxTaskCount);
+
+			for (var i = 0; i < taskCount; i++)
 			{
-				Status = 1,
-				ExpirationTime =  _dateTimeProvider.Now().Add(context.ExpirationOffset)
-			};
-			_repository.Create(newDelivery);
+				var newDelivery = new Delivery
+				{
+					Status = 1,
+					ExpirationTime = _dateTimeProvider.Now().Add(context.ExpirationOffset)
+				};
+				_repository.Create(newDelivery);
+			}
 		}
 	}
 }
