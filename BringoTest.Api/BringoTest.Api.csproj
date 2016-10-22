@@ -103,7 +103,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\DataSource.cs" />
     <Compile Include="App_Start\SimpleInjectorScopeFactory.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DeliveriesController.cs" />

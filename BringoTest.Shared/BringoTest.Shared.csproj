@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="DataSource.cs" />
     <Compile Include="DataTimeProvider\IDateTimeProvider.cs" />
     <Compile Include="DataTimeProvider\UtcDateTimeProvider.cs" />
     <Compile Include="DeliveryStatus.cs" />

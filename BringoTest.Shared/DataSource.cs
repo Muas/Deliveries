@@ -1,4 +1,4 @@
-﻿namespace BringoTest.Api
+﻿namespace BringoTest.Shared
 {
 	public enum DataSource
 	{

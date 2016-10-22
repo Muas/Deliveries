@@ -55,12 +55,7 @@ namespace BringoTest.Api
 
 		private static void RegisterDataDependencies(Container container)
 		{
-			var dataSourceString = Registry.Configuration.DataSource;
-			DataSource dataSource;
-			if (!Enum.TryParse(dataSourceString, true, out dataSource))
-			{
-				throw new ConfigurationErrorsException("Invalid data source");
-			}
+			var dataSource = Registry.Configuration.DataSource;
 			switch (dataSource)
 			{
 				case DataSource.SQLite:

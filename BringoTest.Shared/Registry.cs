@@ -8,14 +8,14 @@ namespace BringoTest.Shared
 	{
 		public static class Configuration
 		{
-			private static readonly Lazy<string> _dataSource = new Lazy<string>(() => GetConfigurationValue<string>("DataSource"));
+			private static readonly Lazy<DataSource> _dataSource = new Lazy<DataSource>(() => GetConfigurationValue<DataSource>("DataSource"));
 			private static readonly Lazy<int> _minTaskCount = new Lazy<int>(() => GetConfigurationValue<int>("MinTaskCount"));
 			private static readonly Lazy<int> _maxTaskCount = new Lazy<int>(() => GetConfigurationValue<int>("MaxTaskCount"));
 			private static readonly Lazy<int> _minInterval = new Lazy<int>(() => GetConfigurationValue<int>("MinInterval"));
 			private static readonly Lazy<int> _maxInterval = new Lazy<int>(() => GetConfigurationValue<int>("MaxInterval"));
 			private static readonly Lazy<int> _expirationOffset = new Lazy<int>(() => GetConfigurationValue<int>("ExpirationOffset"));
 
-			public static string DataSource => _dataSource.Value;
+			public static DataSource DataSource => _dataSource.Value;
 			public static int MinTaskCount => _minTaskCount.Value;
 			public static int MaxTaskCount => _maxTaskCount.Value;
 			public static int MinInterval => _minInterval.Value;
