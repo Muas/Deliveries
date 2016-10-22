@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BringoTest.Shared.Extensions
+namespace BringoTest.Shared.Helpers
 {
 	public static class NewtonsoftJsonHelper
 	{

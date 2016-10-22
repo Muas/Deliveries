@@ -1,6 +1,7 @@
 ﻿using System;
 using BringoTest.Shared;
 using BringoTest.Shared.Extensions;
+using BringoTest.Shared.ScopeFactory;
 using BringoTest.Tasks.Tasks;
 using Timer = System.Timers.Timer;
 

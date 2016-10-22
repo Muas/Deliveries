@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BringoTest.Shared
+namespace BringoTest.Shared.ScopeFactory
 {
 	public interface IScopeFactory
 	{

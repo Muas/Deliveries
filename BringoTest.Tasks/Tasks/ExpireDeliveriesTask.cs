@@ -2,6 +2,7 @@
 using BringoTest.Data.Repositories;
 using BringoTest.Shared;
 using BringoTest.Shared.DataTimeProvider;
+using BringoTest.Shared.Enums;
 using BringoTest.Shared.Extensions;
 
 namespace BringoTest.Tasks.Tasks

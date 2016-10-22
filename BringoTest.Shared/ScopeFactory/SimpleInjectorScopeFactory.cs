@@ -1,9 +1,8 @@
 ﻿using System;
-using BringoTest.Shared;
 using SimpleInjector;
 using SimpleInjector.Extensions.ExecutionContextScoping;
 
-namespace BringoTest.Api
+namespace BringoTest.Shared.ScopeFactory
 {
 	public class SimpleInjectorScopeFactory : IScopeFactory
 	{

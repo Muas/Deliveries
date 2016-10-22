@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Configuration;
+using BringoTest.Shared.Enums;
 
 namespace BringoTest.Shared
 {

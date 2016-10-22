@@ -4,6 +4,7 @@ using AutoMapper;
 using BringoTest.Api.Models;
 using BringoTest.Data.Repositories;
 using BringoTest.Shared;
+using BringoTest.Shared.Enums;
 using BringoTest.Shared.Exceptions;
 using BringoTest.Shared.Extensions;
 
@@ -31,8 +32,7 @@ namespace BringoTest.Api.Controllers
 		}
 
 		[Route("{deliveryId}/TakeDelivery")]
-		// todo: put
-		[HttpGet]
+		[HttpPut]
 		public Delivery TakeDelivery(int deliveryId, uint userId)
 		{
 			var delivery = _repository.Get(deliveryId).Map<Delivery>(_mapper);

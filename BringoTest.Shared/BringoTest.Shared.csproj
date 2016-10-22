@@ -43,6 +43,10 @@
       <HintPath>..\packages\SimpleInjector.3.2.3\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.2.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.2.3\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -55,18 +59,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
-    <Compile Include="DataSource.cs" />
     <Compile Include="DataTimeProvider\IDateTimeProvider.cs" />
     <Compile Include="DataTimeProvider\UtcDateTimeProvider.cs" />
-    <Compile Include="DeliveryStatus.cs" />
+    <Compile Include="Enums\DataSource.cs" />
+    <Compile Include="Enums\DeliveryStatus.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Extensions\AutomapperExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Extensions\NewtonsoftJsonHelper.cs" />
     <Compile Include="Extensions\ReaderWriterLockSlimExtensions.cs" />
     <Compile Include="Extensions\ServiceProviderExtension.cs" />
-    <Compile Include="IScopeFactory.cs" />
+    <Compile Include="Helpers\NewtonsoftJsonHelper.cs" />
     <Compile Include="Multithreading\ReadLock.cs" />
     <Compile Include="Multithreading\UpgradeableLock.cs" />
     <Compile Include="Multithreading\WriteLock.cs" />
@@ -74,6 +77,8 @@
     <Compile Include="RandomGenerator\DefaultRandomGenerator.cs" />
     <Compile Include="RandomGenerator\IRandomGenerator.cs" />
     <Compile Include="Registry.cs" />
+    <Compile Include="ScopeFactory\IScopeFactory.cs" />
+    <Compile Include="ScopeFactory\SimpleInjectorScopeFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

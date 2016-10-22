@@ -3,6 +3,7 @@ using System.Timers;
 using BringoTest.Shared;
 using BringoTest.Shared.Extensions;
 using BringoTest.Shared.RandomGenerator;
+using BringoTest.Shared.ScopeFactory;
 using BringoTest.Tasks.Tasks;
 
 namespace BringoTest.Tasks.TaskSchedulers

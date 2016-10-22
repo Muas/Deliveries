@@ -3,6 +3,7 @@ using BringoTest.Data.Models;
 using BringoTest.Data.Repositories;
 using BringoTest.Shared;
 using BringoTest.Shared.DataTimeProvider;
+using BringoTest.Shared.Enums;
 using BringoTest.Shared.RandomGenerator;
 
 namespace BringoTest.Tasks.Tasks

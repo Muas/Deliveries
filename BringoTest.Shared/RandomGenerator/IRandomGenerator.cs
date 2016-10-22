@@ -1,6 +1,4 @@
-﻿using System.Data;
-
-namespace BringoTest.Shared.RandomGenerator
+﻿namespace BringoTest.Shared.RandomGenerator
 {
 	public interface IRandomGenerator
 	{
